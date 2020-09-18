@@ -24,7 +24,9 @@ function App() {
   return (
     <div className="App">
       <div className="container-fluid">
-        <Search handleClick={handleClick} />
+        <div className='row'>
+          <Search handleClick={handleClick} />
+        </div>
         <div className="row">
           {!searchResultsState ? <></> : searchResultsState.map(r =>
             (
