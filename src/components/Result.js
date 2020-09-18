@@ -1,6 +1,8 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
 
+/* Data is passed in as params, this card is mapped over in App.js */
+
 export default function Result({city, state, population, growth, lat, long}) {
 
     return (

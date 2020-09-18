@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import { Button, Card, Form } from 'react-bootstrap'
 
+/* Simple input with search button inside a bootstrap card with minimal styling. Input changes update the hook and set the data-value of the button dynamicall to be used in App.js for the search parameter. */
+
 export default function Search({handleClick}) {
 
     const [valueState, setValueState] = useState('')

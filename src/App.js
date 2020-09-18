@@ -5,7 +5,7 @@ import Search from './components/Search';
 import locations from './locations.json'
 
 /* The App.js file is acting as our only "Page" component since the funcitonality of the site is so simple. 
-Normally we would set up routes to different pages here using react-router-dom */
+Normally we would set up routes to different pages here using react-router-dom. */
 
 function App() {
 
