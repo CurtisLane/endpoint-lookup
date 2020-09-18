@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
+import Result from './components/Result';
 import Search from './components/Search';
 import locations from './locations.json'
 
@@ -10,17 +11,36 @@ function App() {
 
   const [locationsState, setLocationsState] = useState(locations)
 
+  const [searchResultsState, setSearchResultsState] = useState()
+
   const handleClick = e => {
     e.preventDefault()
     const searchParam = e.target.attributes.getNamedItem("data-value").value
     const cityStateArr = searchParam.split(', ')
     const searchResults = locationsState.filter(location => location.city.toLowerCase() === cityStateArr[0].toLowerCase())
-    console.log(searchResults)
+    setSearchResultsState(searchResults)
   }
 
   return (
     <div className="App">
-      <Search handleClick={handleClick} />
+      <div className="container-fluid">
+        <Search handleClick={handleClick} />
+        <div className="row">
+          {!searchResultsState ? <></> : searchResultsState.map(r =>
+            (
+              <Result
+                key={r.city + ", " + r.state}
+                city={r.city}
+                state={r.state}
+                population={r.population}
+                growth={r.growth_from_2000_to_2013}
+                lat={r.latitude}
+                long={r.longitude}
+              />
+            )
+          )}
+        </div>
+      </div>
     </div>
   );
 }

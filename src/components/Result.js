@@ -5,7 +5,7 @@ export default function Result({city, state, population, growth, lat, long}) {
 
     return (
         <>
-            <Card className="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3 my-5">
+            <Card className="col-12 col-sm-10 col-md-8 col-lg-6 offset-sm-1 offset-md-2 offset-lg-3 mb-5 bg-secondary text-light p-4">
                 <Card.Title>
                     {city}, {state}
                 </Card.Title>
