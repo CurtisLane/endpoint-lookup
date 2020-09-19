@@ -13,11 +13,9 @@ function App() {
 
   const [searchResultsState, setSearchResultsState] = useState()
 
-  const handleClick = e => {
-    e.preventDefault()
-    const searchParam = e.target.attributes.getNamedItem("data-value").value
-    const cityStateArr = searchParam.split(', ')
-    const searchResults = locationsState.filter(location => location.city.toLowerCase() === cityStateArr[0].toLowerCase())
+  const handleInputChange = e => {
+    const searchParam = e.target.value.split(', ')
+    const searchResults = locationsState.filter(location => location.city.toLowerCase().includes(searchParam[0].toLowerCase()))
     setSearchResultsState(searchResults)
   }
 
@@ -25,7 +23,7 @@ function App() {
     <div className="App">
       <div className="container-fluid">
         <div className='row'>
-          <Search handleClick={handleClick} />
+          <Search handleInputChange={handleInputChange} />
         </div>
         <div className="row">
           {!searchResultsState ? <></> : searchResultsState.map(r =>

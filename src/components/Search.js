@@ -3,13 +3,13 @@ import { Button, Card, Form } from 'react-bootstrap'
 
 /* Simple input with search button inside a bootstrap card with minimal styling. Input changes update the hook and set the data-value of the button dynamicall to be used in App.js for the search parameter. */
 
-export default function Search({handleClick}) {
+export default function Search({ handleInputChange}) {
 
     const [valueState, setValueState] = useState('')
 
-    const handleInputChange = e => {
-        setValueState(e.target.value)
-    }
+    // const handleInputChange = e => {
+    //     setValueState(e.target.value)
+    // }
 
     return (
         <>
@@ -19,9 +19,6 @@ export default function Search({handleClick}) {
                         <Form.Label>Search for a city and state in the US.</Form.Label>
                         <Form.Control onChange={handleInputChange} type="text" placeholder="Ex: San Francisco, CA" />
                     </Form.Group>
-                    <Button data-value={valueState} className="mb-2" variant="primary" type="button" onClick={handleClick}>
-                        Search
-                </Button>
                 </Form>
             </Card>
         </>
