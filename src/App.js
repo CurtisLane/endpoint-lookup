@@ -16,7 +16,11 @@ function App() {
   const handleInputChange = e => {
     const searchParam = e.target.value.split(', ')
     const searchResults = locationsState.filter(location => location.city.toLowerCase().includes(searchParam[0].toLowerCase()))
-    setSearchResultsState(searchResults)
+    if (searchParam[0].length){
+      setSearchResultsState(searchResults)
+    } else {
+      setSearchResultsState([])
+    }
   }
 
   return (
